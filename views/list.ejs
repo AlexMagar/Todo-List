@@ -2,21 +2,34 @@
 <html lang="en">
 <head>
     <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1><%= KindOfDay %></h1>
+    <div class="box" id="heading">
+        <h1><%= KindOfDay %></h1>
+    </div>
 
-    <ul>
+    <div class="box">
         <% for(var i=0; i<newListItems.length; i++){ %>
-        <li><%= newListItems[i] %></li>
-        <% } %>
-    </ul>
 
-    <!-- Post the information inside of the form to the server at home route (app.js) -->
-    <form class="" action="/" method="post">
-        <input type="text" name="newItem" placeholder="Input the Item name"/>
-        <button type="submit" name="button">Add</button>
-    </form>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+        </div>
+
+        <% } %>
+
+        <!-- Post the information inside of the form to the server at home route (app.js) -->
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off" />
+            <button type="submit" name="button">+</button>
+        </form>
+
+    </div>
+
+    
+
+    
 
 </body>
 </html>
