@@ -4,7 +4,19 @@
     <title>Todo List</title>
 </head>
 <body>
-    <h1><%= KindOfDay %> List</h1>
+    <h1><%= KindOfDay %></h1>
+
+    <ul>
+        <% for(var i=0; i<newListItems.length; i++){ %>
+        <li><%= newListItems[i] %></li>
+        <% } %>
+    </ul>
+
+    <!-- Post the information inside of the form to the server at home route (app.js) -->
+    <form class="" action="/" method="post">
+        <input type="text" name="newItem" placeholder="Input the Item name"/>
+        <button type="submit" name="button">Add</button>
+    </form>
 
 </body>
 </html>
