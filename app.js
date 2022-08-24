@@ -12,12 +12,14 @@ app.set('view engine', 'ejs'); //use ejs as its view engine, it has to place bel
 
 app.use(bodyParser.urlencoded({extended: true})); //using bodyParser
 
+app.use(express.static("public")); // to load the css contain 
+
 //create get route that sends the browser text, when user tris access the home route
 app.get("/", function(req, res){
 
     var today = new Date();
     
-    var options ={ weekday: 'long', year:'numeric', month:'long', day:'numeric'};
+    var options ={ weekday: 'long', month:'long', day:'numeric'};
 
     var day = today.toLocaleDateString("en-GB", options);
 
