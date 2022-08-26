@@ -3,6 +3,7 @@
 //requring packages 
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
 
 var items = ["Buy Food", "Cook Food", "Eat Food"];
 
@@ -17,11 +18,13 @@ app.use(express.static("public")); // to load the css contain
 //create get route that sends the browser text, when user tris access the home route
 app.get("/", function(req, res){
 
-    var today = new Date();
+    // var today = new Date();
     
-    var options ={ weekday: 'long', month:'long', day:'numeric'};
+    // var options ={ weekday: 'long', month:'long', day:'numeric'};
 
-    var day = today.toLocaleDateString("en-GB", options);
+    // var day = today.toLocaleDateString("en-GB", options);
+
+    let day = date.getDate(); //call the function 
 
     res.render("list", {KindOfDay: day, newListItems: items});
 });
@@ -34,6 +37,10 @@ app.post("/",function(req, res){
     
     items.push(item); //pusing item in array list
     res.redirect("/") // redirect to home route 
+});
+
+app.get("/about", function(req, res){
+    res.render("about");
 });
 
 //listen in port 3000
